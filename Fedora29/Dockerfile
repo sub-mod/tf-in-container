@@ -49,7 +49,7 @@ ARG TF_URL=https://github.com/AICoE/tensorflow-wheels/releases/download/tf-r1.13
 RUN INSTALL_PKGS="wget vim unzip which findutils file procps gcc python3-devel" && \
   	dnf -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
 	wget $TF_URL && \
-	pip3 install tensorflow*.whl && \
+	pip3 install tensorflow*.whl --user && \
 	python3 -c $TEST_CMD && \
 	rm -fr tensorflow*.whl && \
 	dnf clean all -y
