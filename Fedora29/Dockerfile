@@ -50,7 +50,7 @@ RUN INSTALL_PKGS="wget vim unzip which findutils file procps gcc python3-devel" 
   	dnf -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
 	wget $TF_URL && \
 	pip3 install tensorflow*.whl && \
-	python3 -c "$TEST_CMD" && \
+	python3 -c $TEST_CMD && \
 	rm -fr tensorflow*.whl && \
 	dnf clean all -y
 
